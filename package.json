@@ -1,0 +1,34 @@
+{
+  "name": "postcss-object-fit-images",
+  "version": "0.0.0",
+  "description": "PostCSS plugin that updates the standard object-fit tag to work with the object-fit-images polyfill for browsers that do not natively support object-fit.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "object-fit",
+    "object-fit-images",
+    "polyfill"
+  ],
+  "author": "Michael Shick <m@shick.us>",
+  "license": "MIT",
+  "repository": "mshick/postcss-object-fit-images",
+  "bugs": {
+    "url": "https://github.com/mshick/postcss-object-fit-images/issues"
+  },
+  "homepage": "https://github.com/mshick/postcss-object-fit-images",
+  "dependencies": {
+    "postcss": "^5.0.16"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "eslint": "^2.1.0",
+    "eslint-config-postcss": "^2.0.0"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
