@@ -6,15 +6,20 @@
 [ci-img]:  https://travis-ci.org/mshick/postcss-object-fit-images.svg
 [ci]:      https://travis-ci.org/mshick/postcss-object-fit-images
 
+For use with [object-fit-images](https://github.com/bfred-it/object-fit-images)
+
 ```css
 .foo {
-    /* Input example */
+    object-fit: cover;
+    object-position: top;
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+    font-family: "object-fit: cover; object-position: top";
+    object-fit: cover;
+    object-position: top;
 }
 ```
 
