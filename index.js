@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-const postcss = require("postcss");
+const postcss = require('postcss');
 
 const getValueForProperty = function (parent, name) {
 
     let retValue;
 
     parent.walkDecls(name, (decl) => {
-        if (name === decl.prop){
+        if (name === decl.prop) {
             retValue = decl.value;
         }
     });
@@ -15,30 +15,33 @@ const getValueForProperty = function (parent, name) {
     return retValue;
 };
 
-module.exports = postcss.plugin("postcss-object-fit-images", (opts) => {
+const declWalker = function (decl) {
+
+    const parent = decl.parent;
+
+    const objFit = decl.value;
+
+    const fontFamily = getValueForProperty(parent, 'font-family', false);
+    const objPosition = getValueForProperty(parent, 'object-position', false);
+
+    if (!fontFamily && objPosition) {
+        decl.cloneBefore({
+            prop: 'font-family',
+            value: `"object-fit: ${objFit}; object-position: ${objPosition}"`
+        });
+    } else if (!fontFamily) {
+        decl.cloneBefore({
+            prop: 'font-family',
+            value: `"object-fit: ${objFit}"`
+        });
+    }
+};
+
+module.exports = postcss.plugin('postcss-object-fit-images', (opts) => {
 
     opts = opts || {};
 
     return function (css) {
-
-        css.walkDecls(/(^object-fit$)/, (decl) => {
-
-            const objectFit = decl.value;
-
-            const fontFamily = getValueForProperty(decl.parent, "font-family", false);
-            const objectPosition = getValueForProperty(decl.parent, "object-position", false);
-
-            if (!fontFamily && objectPosition) {
-                decl.cloneAfter({
-                    prop: "font-family",
-                    value: `"object-fit: ${objectFit}; object-position: ${objectPosition}"`
-                });
-            } else if (!fontFamily) {
-                decl.cloneAfter({
-                    prop: "font-family",
-                    value: `"object-fit: ${objectFit}"`
-                });
-            }
-        });
+        css.walkDecls(/(^object-fit$)/, declWalker);
     };
 });
