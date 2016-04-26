@@ -49,6 +49,6 @@ module.exports = postcss.plugin('postcss-object-fit-images', (opts) => {
     opts = opts || {};
 
     return function (css) {
-        css.walkDecls(/(^object-fit$)/, declWalker);
+        css.walkDecls('object-fit', declWalker);
     };
 });
