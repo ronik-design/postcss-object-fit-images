@@ -24,17 +24,24 @@ const declWalker = function (decl) {
     const fontFamily = getValueForProperty(parent, 'font-family', false);
     const objPosition = getValueForProperty(parent, 'object-position', false);
 
-    if (!fontFamily && objPosition) {
-        decl.cloneBefore({
-            prop: 'font-family',
-            value: `"object-fit: ${objFit}; object-position: ${objPosition}"`
-        });
-    } else if (!fontFamily) {
-        decl.cloneBefore({
-            prop: 'font-family',
-            value: `"object-fit: ${objFit}"`
-        });
+    const value = [
+        'object-fit: ' + objFit
+    ];
+    if (objPosition) {
+        value.push('object-position: ' + objPosition);
     }
+
+    const props = {
+        prop: 'font-family',
+        value: '"' + value.join('; ') + '"'
+    };
+
+    // keep existing font-family
+    if (fontFamily) {
+        props.value += ', ' + fontFamily;
+    }
+
+    decl.cloneBefore(props);
 };
 
 module.exports = postcss.plugin('postcss-object-fit-images', (opts) => {
