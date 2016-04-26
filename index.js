@@ -25,15 +25,15 @@ const declWalker = function (decl) {
     const objPosition = getValueForProperty(parent, 'object-position', false);
 
     const value = [
-        'object-fit: ' + objFit
+        'object-fit:' + objFit
     ];
     if (objPosition) {
-        value.push('object-position: ' + objPosition);
+        value.push('object-position:' + objPosition);
     }
 
     const props = {
         prop: 'font-family',
-        value: '"' + value.join('; ') + '"'
+        value: '"' + value.join(';') + '"'
     };
 
     // keep existing font-family

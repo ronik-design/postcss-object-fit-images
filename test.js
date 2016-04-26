@@ -16,7 +16,7 @@ test('adds font-family declaration', (t) => {
     return run(
         t,
         'a{object-fit:cover}',
-        'a{font-family:"object-fit: cover";object-fit:cover}',
+        'a{font-family:"object-fit:cover";object-fit:cover}',
         { }
     );
 });
@@ -25,7 +25,7 @@ test('adds object-position declaration', (t) => {
     return run(
         t,
         'a{object-fit: cover;object-position: top}',
-        'a{font-family: "object-fit: cover; object-position: top";' +
+        'a{font-family: "object-fit:cover;object-position:top";' +
         'object-fit: cover;' +
         'object-position: top}',
         { }
