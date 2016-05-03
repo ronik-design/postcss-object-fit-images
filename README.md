@@ -3,8 +3,8 @@
 [PostCSS] plugin that updates the standard object-fit tag to work with the object-fit-images polyfill for browsers that do not natively support object-fit..
 
 [PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/mshick/postcss-object-fit-images.svg
-[ci]:      https://travis-ci.org/mshick/postcss-object-fit-images
+[ci-img]:  https://travis-ci.org/ronik-design/postcss-object-fit-images.svg
+[ci]:      https://travis-ci.org/ronik-design/postcss-object-fit-images
 
 For use with [object-fit-images](https://github.com/bfred-it/object-fit-images)
 
