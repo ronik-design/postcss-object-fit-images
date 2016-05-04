@@ -1,12 +1,12 @@
 'use strict';
 
-const postcss = require('postcss');
+var postcss = require('postcss');
 
-const getValueForProperty = function (parent, name) {
+var getValueForProperty = function (parent, name) {
 
-    let retValue;
+    var retValue;
 
-    parent.walkDecls(name, (decl) => {
+    parent.walkDecls(name, function (decl) {
         if (name === decl.prop) {
             retValue = decl.value;
         }
@@ -15,23 +15,23 @@ const getValueForProperty = function (parent, name) {
     return retValue;
 };
 
-const declWalker = function (decl) {
+var declWalker = function (decl) {
 
-    const parent = decl.parent;
+    var parent = decl.parent;
 
-    const objFit = decl.value;
+    var objFit = decl.value;
 
-    const fontFamily = getValueForProperty(parent, 'font-family', false);
-    const objPosition = getValueForProperty(parent, 'object-position', false);
+    var fontFamily = getValueForProperty(parent, 'font-family', false);
+    var objPosition = getValueForProperty(parent, 'object-position', false);
 
-    const value = [
+    var value = [
         'object-fit:' + objFit
     ];
     if (objPosition) {
         value.push('object-position:' + objPosition);
     }
 
-    const props = {
+    var props = {
         prop: 'font-family',
         value: '"' + value.join(';') + '"'
     };
@@ -44,7 +44,7 @@ const declWalker = function (decl) {
     decl.cloneBefore(props);
 };
 
-module.exports = postcss.plugin('postcss-object-fit-images', (opts) => {
+module.exports = postcss.plugin('postcss-object-fit-images', function (opts) {
 
     opts = opts || {};
 
