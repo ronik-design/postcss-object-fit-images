@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/mshick/postcss-object-fit-images",
   "dependencies": {
-    "postcss": "^5.0.16"
+    "parse-css-font": "^2.0.2",
+    "postcss": "^5.0.16",
+    "quote": "^0.4.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
