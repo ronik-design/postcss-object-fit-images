@@ -1,6 +1,6 @@
 {
   "name": "postcss-object-fit-images",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "PostCSS plugin that updates the standard object-fit tag to work with the object-fit-images polyfill for browsers that do not natively support object-fit.",
   "keywords": [
     "postcss",
@@ -11,7 +11,9 @@
     "polyfill"
   ],
   "author": "Michael Shick <m@shick.us>",
-  "contributors": ["Federico Brigante"],
+  "contributors": [
+    "Federico Brigante"
+  ],
   "license": "MIT",
   "repository": "mshick/postcss-object-fit-images",
   "bugs": {
