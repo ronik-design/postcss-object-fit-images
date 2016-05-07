@@ -11,6 +11,7 @@
     "polyfill"
   ],
   "author": "Michael Shick <m@shick.us>",
+  "contributors": ["Federico Brigante"],
   "license": "MIT",
   "repository": "mshick/postcss-object-fit-images",
   "bugs": {

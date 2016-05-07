@@ -69,3 +69,10 @@ postcss([ require('postcss-object-fit-images') ])
 ```
 
 See [PostCSS] docs for examples for your environment.
+
+## Contributors
+
+* [Michael Shick](https://www.github.com/mshick)
+* [Federico Brigante](https://www.github.com/bfred-it)
+
+
