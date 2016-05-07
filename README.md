@@ -15,11 +15,50 @@ For use with [object-fit-images](https://github.com/bfred-it/object-fit-images)
 }
 ```
 
+Compiles to:
+
 ```css
 .foo {
     font-family: "object-fit: cover; object-position: top";
     object-fit: cover;
     object-position: top;
+}
+```
+
+## Existing `font` and `font-family`
+
+Existing `font` and `font-family` declarations are kept and [object-fit-images](https://github.com/bfred-it/object-fit-images) will still work:
+
+```css
+.foo {
+    object-fit: cover;
+    object-position: top;
+    font-family: "Helvetica Neue";
+}
+
+/* Compiles to: */
+
+.foo {
+    object-fit: cover;
+    object-position: top;
+    font-family: "object-fit:cover;object-position:top", "Helvetica Neue";
+}
+```
+
+```css
+.foo {
+    object-fit: cover;
+    object-position: top;
+    font: strong 1em/1.4 "Helvetica Neue";
+}
+
+/* Compiles to: */
+
+.foo {
+    object-fit: cover;
+    object-position: top;
+    font: strong 1em/1.4 "Helvetica Neue";
+    font-family: "object-fit:cover;object-position:top", "Helvetica Neue";
 }
 ```
 
