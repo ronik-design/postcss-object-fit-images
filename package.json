@@ -15,11 +15,14 @@
     "Federico Brigante"
   ],
   "license": "MIT",
-  "repository": "mshick/postcss-object-fit-images",
-  "bugs": {
-    "url": "https://github.com/mshick/postcss-object-fit-images/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronik-design/postcss-object-fit-images"
   },
-  "homepage": "https://github.com/mshick/postcss-object-fit-images",
+  "bugs": {
+    "url": "https://github.com/ronik-design/postcss-object-fit-images/issues"
+  },
+  "homepage": "https://github.com/ronik-design/postcss-object-fit-images",
   "dependencies": {
     "parse-css-font": "^2.0.2",
     "postcss": "^5.0.16",
