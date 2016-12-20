@@ -62,6 +62,11 @@ Existing `font` and `font-family` declarations are kept and [object-fit-images](
 }
 ```
 
+## Installation
+```
+npm install postcss-object-fit-images
+```
+
 ## Usage
 
 ```js
@@ -74,5 +79,3 @@ See [PostCSS] docs for examples for your environment.
 
 * [Michael Shick](https://www.github.com/mshick)
 * [Federico Brigante](https://www.github.com/bfred-it)
-
-
