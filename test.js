@@ -15,8 +15,8 @@ function run(t, input, output, opts = {}) {
 test('adds font-family declaration', (t) => {
     return run(
         t,
-        'a{object-fit:cover}',
-        'a{font-family:"object-fit:cover";object-fit:cover}',
+        'a{object-fit:cover;}',
+        'a{font-family:"object-fit:cover";object-fit:cover;}',
         { }
     );
 });
@@ -24,10 +24,10 @@ test('adds font-family declaration', (t) => {
 test('adds object-position declaration', (t) => {
     return run(
         t,
-        'a{object-fit: cover;object-position: top}',
+        'a{object-fit: cover;object-position: top;}',
         'a{font-family: "object-fit:cover;object-position:top";' +
         'object-fit: cover;' +
-        'object-position: top}',
+        'object-position: top;}',
         { }
     );
 });
@@ -38,14 +38,16 @@ test('keeps existing font-family declaration', (t) => {
         'a{' +
             'object-fit: cover;' +
             'object-position: top;' +
-            'font-family: "Helvetica Neue", Helvetica, sans-serif' +
+            'font-family: "Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: bold;' +
         '}',
         'a{' +
             'object-fit: cover;' +
             'object-position: top;' +
             'font-family: ' +
                 '"object-fit:cover;object-position:top", ' +
-                '"Helvetica Neue", Helvetica, sans-serif' +
+                '"Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: bold;' +
         '}',
         { }
     );
@@ -58,7 +60,8 @@ test('keeps the last existing font-family declaration', (t) => {
             'font-family: overridden;' +
             'object-fit: cover;' +
             'object-position: top;' +
-            'font-family: "Helvetica Neue", Helvetica, sans-serif' +
+            'font-family: "Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: bold;' +
         '}',
         'a{' +
             'font-family: overridden;' +
@@ -66,7 +69,8 @@ test('keeps the last existing font-family declaration', (t) => {
             'object-position: top;' +
             'font-family: ' +
                 '"object-fit:cover;object-position:top", ' +
-                '"Helvetica Neue", Helvetica, sans-serif' +
+                '"Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: bold;' +
         '}',
         { }
     );
@@ -79,7 +83,8 @@ test('keeps existing font declaration', (t) => {
             'font-family: overridden;' +
             'object-fit: cover;' +
             'object-position: top;' +
-            'font: strong 1em/1 "Helvetica Neue", Helvetica, sans-serif' +
+            'font: strong 1em/1 "Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: normal;' +
         '}',
         'a{' +
             'font-family: overridden;' +
@@ -88,7 +93,8 @@ test('keeps existing font declaration', (t) => {
             'font: strong 1em/1 "Helvetica Neue", Helvetica, sans-serif;' +
             'font-family: ' +
                 '"object-fit:cover;object-position:top", ' +
-                '"Helvetica Neue", Helvetica, sans-serif' +
+                '"Helvetica Neue", Helvetica, sans-serif;' +
+            'font-weight: normal;' +
         '}',
         { }
     );

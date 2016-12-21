@@ -28,7 +28,7 @@ var declWalker = function (decl) {
 
     var objFit = decl.value;
 
-    var existingFont = getLastPropertyDecl(parent, /font|font-family/);
+    var existingFont = getLastPropertyDecl(parent, /^font(-family)?$/);
     var objPosition = getLastPropertyDecl(parent, 'object-position');
 
     var value = [
