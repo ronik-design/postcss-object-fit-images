@@ -56,7 +56,7 @@ html {
 
 /* Compiles to: */
 
-.foo {
+html {
     scroll-behavior: smooth;
     font: strong 1em/1.4 "Helvetica Neue";
     font-family: "scroll-behavior:smooth", "Helvetica Neue";
