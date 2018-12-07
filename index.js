@@ -12,7 +12,6 @@ var quoteIfNecessary = function (family) {
 };
 
 var getLastPropertyDecl = function (parent, name) {
-
     var decl;
 
     parent.walkDecls(name, function (currentDecl) {
@@ -23,24 +22,16 @@ var getLastPropertyDecl = function (parent, name) {
 };
 
 var declWalker = function (decl) {
-
     var parent = decl.parent;
-
-    var objFit = decl.value;
+    var scrollBehavior = decl.value;
 
     var existingFont = getLastPropertyDecl(parent, /^font(-family)?$/);
-    var objPosition = getLastPropertyDecl(parent, 'object-position');
 
-    var value = [
-        'object-fit:' + objFit
-    ];
-    if (objPosition) {
-        value.push('object-position:' + objPosition.value);
-    }
+    var value = 'scroll-behavior:' + scrollBehavior;
 
     var props = {
         prop: 'font-family',
-        value: quote(value.join(';'))
+        value: quote(value)
     };
 
     // keep existing font-family
@@ -67,11 +58,13 @@ var declWalker = function (decl) {
 
 };
 
-module.exports = postcss.plugin('postcss-object-fit-images', function (opts) {
+module.exports = postcss.plugin(
+    'postcss-smoothscroll-anchor-polyfill',
+    function (opts) {
+        opts = opts || {};
 
-    opts = opts || {};
-
-    return function (css) {
-        css.walkDecls('object-fit', declWalker);
-    };
-});
+        return function (css) {
+            css.walkDecls('scroll-behavior', declWalker);
+        };
+    }
+);

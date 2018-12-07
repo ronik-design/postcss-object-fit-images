@@ -1,81 +1,85 @@
-# PostCSS Object Fit Images [![Build Status][ci-img]][ci]
+<p align="center">
+  <a href="https://www.npmjs.com/package/smoothscroll-anchor-polyfill"><img align="center" src="https://img.shields.io/npm/v/postcss-smoothscroll-anchor-polyfill.svg" alt="NPM version"></a>
+  <a href="https://travis-ci.org/jonaskuske/postcss-smoothscroll-anchor-polyfill"><img align="center" src="https://travis-ci.org/jonaskuske/postcss-smoothscroll-anchor-polyfill.svg?branch=master" alt="Build status"></a>
+  <a href="./LICENSE"><img align="center" src="https://img.shields.io/npm/l/postcss-smoothscroll-anchor-polyfill.svg" alt="License"></a>
+</p>  
 
-[PostCSS] plugin that updates the standard object-fit tag to work with the object-fit-images polyfill for browsers that do not natively support object-fit..
+&nbsp;  
+&nbsp;  
 
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/ronik-design/postcss-object-fit-images.svg
-[ci]:      https://travis-ci.org/ronik-design/postcss-object-fit-images
+<h1 align="center">postcss-smoothscroll-anchor-polyfill</h1>
+<p align="center">⚓ <a href="https://github.com/postcss/postcss">PostCSS</a> plugin that updates the standard <code>scroll-behavior</code> property to work with <a href="https://github.com/jonaskuske/smoothscroll-anchor-polyfill">smoothscroll-anchor-polyfill</a></p>
 
-For use with [object-fit-images](https://github.com/bfred-it/object-fit-images)
+&nbsp;  
+&nbsp;  
 
 ```css
-.foo {
-    object-fit: cover;
-    object-position: top;
+html {
+    scroll-behavior: smooth;
 }
 ```
 
 Compiles to:
 
 ```css
-.foo {
-    font-family: "object-fit: cover; object-position: top";
-    object-fit: cover;
-    object-position: top;
+html {
+    font-family: "scroll-behavior:smooth";
+    scroll-behavior: smooth;
 }
 ```
 
 ## Existing `font` and `font-family`
 
-Existing `font` and `font-family` declarations are kept and [object-fit-images](https://github.com/bfred-it/object-fit-images) will still work:
+Existing `font` and `font-family` declarations are kept and [smoothscroll-anchor-polyfill](https://github.com/jonaskuske/smoothscroll-anchor-polyfill) will still work:
+
+> ⚠ Even though the original font declarations are kept, using `html { }` only for `scroll-behavior` and declaring your font styles on `body { }` is prefered.
 
 ```css
-.foo {
-    object-fit: cover;
-    object-position: top;
+html {
+    scroll-behavior: smooth;
     font-family: "Helvetica Neue";
 }
 
 /* Compiles to: */
 
-.foo {
-    object-fit: cover;
-    object-position: top;
-    font-family: "object-fit:cover;object-position:top", "Helvetica Neue";
+html {
+    scroll-behavior: smooth;
+    font-family: "scroll-behavior:smooth", "Helvetica Neue";
 }
 ```
 
 ```css
-.foo {
-    object-fit: cover;
-    object-position: top;
+html {
+    scroll-behavior: smooth;
     font: strong 1em/1.4 "Helvetica Neue";
 }
 
 /* Compiles to: */
 
 .foo {
-    object-fit: cover;
-    object-position: top;
+    scroll-behavior: smooth;
     font: strong 1em/1.4 "Helvetica Neue";
-    font-family: "object-fit:cover;object-position:top", "Helvetica Neue";
+    font-family: "scroll-behavior:smooth", "Helvetica Neue";
 }
 ```
 
 ## Install
 ```
-npm install postcss-object-fit-images --save-dev
+npm install postcss-smoothscroll-anchor-polyfill --save-dev
 ```
 
 ## Usage
 
 ```js
-postcss([ require('postcss-object-fit-images') ])
+postcss([ require('postcss-smoothscroll-anchor-polyfill') ])
 ```
 
-See [PostCSS] docs for examples for your environment.
+See [PostCSS](https://github.com/postcss/postcss) docs for examples for your environment.
 
 ## Contributors
 
 * [Michael Shick](https://www.github.com/mshick)
 * [Federico Brigante](https://www.github.com/bfred-it)
+* [Jonas Kuske](https://github.com/jonaskuske)
+
+&nbsp;  

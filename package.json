@@ -1,28 +1,34 @@
 {
-  "name": "postcss-object-fit-images",
-  "version": "1.1.2",
-  "description": "PostCSS plugin that updates the standard object-fit tag to work with the object-fit-images polyfill for browsers that do not natively support object-fit.",
+  "name": "postcss-smoothscroll-anchor-polyfill",
+  "version": "1.0.0",
+  "description": "PostCSS plugin that updates the standard scroll-behavior property to work with smoothscroll-anchor-polyfill",
   "keywords": [
     "postcss",
     "css",
     "postcss-plugin",
-    "object-fit",
-    "object-fit-images",
+    "scroll-behavior",
+    "smoothscroll-anchor-polyfill",
+    "smoothscroll",
+    "smooth",
+    "scroll",
     "polyfill"
   ],
-  "author": "Michael Shick <m@shick.us>",
+  "authors": [
+    "Michael Shick <m@shick.us>",
+    "Jonas Kuske <mail@jonaskuske.com>"
+  ],
   "contributors": [
     "Federico Brigante"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ronik-design/postcss-object-fit-images"
+    "url": "git+https://github.com/jonaskuske/postcss-smoothscroll-anchor-polyfill"
   },
   "bugs": {
-    "url": "https://github.com/ronik-design/postcss-object-fit-images/issues"
+    "url": "https://github.com/jonaskuske/postcss-smoothscroll-anchor-polyfill/issues"
   },
-  "homepage": "https://github.com/ronik-design/postcss-object-fit-images",
+  "homepage": "https://github.com/jonaskuske/postcss-smoothscroll-anchor-polyfill",
   "dependencies": {
     "parse-css-font": "^2.0.2",
     "postcss": "^5.0.16",
