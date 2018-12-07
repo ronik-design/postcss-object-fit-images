@@ -8,7 +8,7 @@
 &nbsp;  
 
 <h1 align="center">postcss-smoothscroll-anchor-polyfill</h1>
-<p align="center">⚓ <a href="https://github.com/postcss/postcss">PostCSS</a> plugin that updates the standard <code>scroll-behavior</code> property to work with <a href="https://github.com/jonaskuske/smoothscroll-anchor-polyfill">smoothscroll-anchor-polyfill</a></p>
+<p align="center">⚙ <a href="https://github.com/postcss/postcss">PostCSS</a> plugin that updates the standard <code>scroll-behavior</code> property to work with <a href="https://github.com/jonaskuske/smoothscroll-anchor-polyfill">smoothscroll-anchor-polyfill</a></p>
 
 &nbsp;  
 &nbsp;  
