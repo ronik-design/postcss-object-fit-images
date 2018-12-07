@@ -54,12 +54,18 @@ var declWalker = function (decl) {
         }
     }
     if (fontFamily) {
-        props.value += ', ' + fontFamily;
+        fontFamily = fontFamily.split(', ').filter(function (family) {
+            return family !== props.value;
+        }).join(', ');
 
-        if (existingFont.prop === 'font') {
-            existingFont.cloneAfter(props);
-        } else {
-            existingFont.replaceWith(props);
+        if (fontFamily) {
+            props.value += ', ' + fontFamily;
+
+            if (existingFont.prop === 'font') {
+                existingFont.cloneAfter(props);
+            } else {
+                existingFont.replaceWith(props);
+            }
         }
     } else {
         decl.cloneBefore(props);
