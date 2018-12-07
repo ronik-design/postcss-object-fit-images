@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.npmjs.com/package/smoothscroll-anchor-polyfill"><img align="center" src="https://img.shields.io/npm/v/postcss-smoothscroll-anchor-polyfill.svg" alt="NPM version"></a>
+  <a href="https://www.npmjs.com/package/postcss-smoothscroll-anchor-polyfill"><img align="center" src="https://img.shields.io/npm/v/postcss-smoothscroll-anchor-polyfill.svg" alt="NPM version"></a>
   <a href="https://travis-ci.org/jonaskuske/postcss-smoothscroll-anchor-polyfill"><img align="center" src="https://travis-ci.org/jonaskuske/postcss-smoothscroll-anchor-polyfill.svg?branch=master" alt="Build status"></a>
   <a href="./LICENSE"><img align="center" src="https://img.shields.io/npm/l/postcss-smoothscroll-anchor-polyfill.svg" alt="License"></a>
 </p>  
