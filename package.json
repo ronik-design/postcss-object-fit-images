@@ -1,6 +1,6 @@
 {
   "name": "postcss-smoothscroll-anchor-polyfill",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "PostCSS plugin that updates the standard scroll-behavior property to work with smoothscroll-anchor-polyfill",
   "keywords": [
     "postcss",
