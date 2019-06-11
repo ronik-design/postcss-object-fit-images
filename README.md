@@ -19,7 +19,7 @@ html {
 }
 ```
 
-Compiles to:
+compiles to:
 
 ```css
 html {
@@ -28,11 +28,23 @@ html {
 }
 ```
 
+or if all browsers in your [browserslist](https://github.com/browserslist/browserslist) support [CSS Custom Properties](https://caniuse.com/#feat=css-variables):
+
+
+```css
+html {
+    --scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+```
+
+&nbsp;
+
 ## Existing `font` and `font-family`
 
 Existing `font` and `font-family` declarations are kept and [smoothscroll-anchor-polyfill](https://github.com/jonaskuske/smoothscroll-anchor-polyfill) will still work:
 
-> ⚠ Even though the original font declarations are kept, using `html { }` only for `scroll-behavior` and declaring your font styles on `body { }` is prefered.
+> 👉🏻 Even though the original font declarations are kept, using `html { }` only for `scroll-behavior` and declaring your font styles on `body { }` is prefered.
 
 ```css
 html {
@@ -63,10 +75,23 @@ html {
 }
 ```
 
-## Install
+&nbsp;
+
+## Installation
+
+**npm**:
+
 ```
 npm install postcss-smoothscroll-anchor-polyfill --save-dev
 ```
+
+**or yarn**:
+
+```bash
+yarn add --dev postcss-smoothscroll-anchor-polyfill
+```
+
+&nbsp;
 
 ## Usage
 
@@ -76,10 +101,13 @@ postcss([ require('postcss-smoothscroll-anchor-polyfill') ])
 
 See [PostCSS](https://github.com/postcss/postcss) docs for examples for your environment.
 
-## Contributors
+&nbsp;
+
+## Thanks to
+
+This PostCSS plugin is based on a fork of [postcss-object-fit-images](https://github.com/ronik-design/postcss-object-fit-images), which was built by:
 
 * [Michael Shick](https://www.github.com/mshick)
 * [Federico Brigante](https://www.github.com/bfred-it)
-* [Jonas Kuske](https://github.com/jonaskuske)
 
 &nbsp;  

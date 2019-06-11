@@ -1,6 +1,7 @@
 'use strict';
 
 var postcss = require('postcss');
+var caniuseAPI = require('caniuse-api');
 var parseCssFont = require('parse-css-font');
 var quote = require('quote');
 
@@ -21,41 +22,54 @@ var getLastPropertyDecl = function (parent, name) {
     return decl;
 };
 
-var declWalker = function (decl) {
-    var parent = decl.parent;
-    var scrollBehavior = decl.value;
+var runTransform = function (css, opts) {
+    // If no browsers (undefined) are passed,
+    // caniuse-api runs browserslist() automatically
+    var browsers = opts.browsers || undefined;
+    var supportsCSSVars = caniuseAPI.isSupported('css-variables', browsers);
 
-    var existingFont = getLastPropertyDecl(parent, /^font(-family)?$/);
+    css.walkDecls('scroll-behavior', function (decl) {
+        var parent = decl.parent;
+        var scrollBehavior = decl.value;
 
-    var value = 'scroll-behavior:' + scrollBehavior;
+        if (supportsCSSVars) {
+            var existingVar = getLastPropertyDecl(parent, '--scroll-behavior');
+            if (existingVar) return;
 
-    var props = {
-        prop: 'font-family',
-        value: quote(value)
-    };
+            var varProps = { prop: '--scroll-behavior', value: scrollBehavior };
+            decl.cloneBefore(varProps);
 
-    // keep existing font-family
-    var fontFamily;
-    if (existingFont) {
-        if (existingFont.prop === 'font') {
-            fontFamily = parseCssFont(existingFont.value).family;
-            fontFamily = fontFamily.map(quoteIfNecessary).join(', ');
-        } else {
-            fontFamily = existingFont.value;
+            return;
         }
-    }
-    if (fontFamily) {
-        props.value += ', ' + fontFamily;
 
-        if (existingFont.prop === 'font') {
-            existingFont.cloneAfter(props);
-        } else {
-            existingFont.replaceWith(props);
+        var existingFont = getLastPropertyDecl(parent, /^font(-family)?$/);
+
+        var value = 'scroll-behavior:' + scrollBehavior;
+        var fontProps = { prop: 'font-family', value: quote(value) };
+
+        // keep existing font-family
+        var fontFamily;
+        if (existingFont) {
+            if (existingFont.prop === 'font') {
+                fontFamily = parseCssFont(existingFont.value).family;
+                fontFamily = fontFamily.map(quoteIfNecessary).join(', ');
+            } else {
+                fontFamily = existingFont.value;
+            }
         }
-    } else {
-        decl.cloneBefore(props);
-    }
 
+        if (fontFamily) {
+            fontProps.value += ', ' + fontFamily;
+
+            if (existingFont.prop === 'font') {
+                existingFont.cloneAfter(fontProps);
+            } else {
+                existingFont.replaceWith(fontProps);
+            }
+        } else {
+            decl.cloneBefore(fontProps);
+        }
+    });
 };
 
 module.exports = postcss.plugin(
@@ -64,7 +78,7 @@ module.exports = postcss.plugin(
         opts = opts || {};
 
         return function (css) {
-            css.walkDecls('scroll-behavior', declWalker);
+            runTransform(css, opts);
         };
     }
 );

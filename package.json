@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/jonaskuske/postcss-smoothscroll-anchor-polyfill",
   "dependencies": {
+    "caniuse-api": "^3.0.0",
     "parse-css-font": "^2.0.2",
     "postcss": "^5.0.16",
     "quote": "^0.4.0"
@@ -43,6 +44,7 @@
     "test": "ava && eslint *.js"
   },
   "eslintConfig": {
+    "root": true,
     "extends": "eslint-config-postcss/es5"
   }
 }
