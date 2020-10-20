@@ -64,7 +64,7 @@ Existing `font` and `font-family` declarations are kept and [object-fit-images](
 
 ## Install
 ```
-npm install postcss-object-fit-images --save-dev
+npm install postcss postcss-object-fit-images --save-dev
 ```
 
 ## Usage

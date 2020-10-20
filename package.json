@@ -25,13 +25,16 @@
   "homepage": "https://github.com/ronik-design/postcss-object-fit-images",
   "dependencies": {
     "parse-css-font": "^2.0.2",
-    "postcss": "^5.0.16",
     "quote": "^0.4.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
     "eslint": "^2.1.0",
-    "eslint-config-postcss": "^2.0.0"
+    "eslint-config-postcss": "^2.0.0",
+    "postcss": "^8.1.2"
+  },
+  "peerDependencies": {
+    "postcss": "^8.1.2"
   },
   "scripts": {
     "test": "ava && eslint *.js"
