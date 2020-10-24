@@ -1,6 +1,5 @@
 'use strict';
 
-var postcss = require('postcss');
 var parseCssFont = require('parse-css-font');
 var quote = require('quote');
 
@@ -67,11 +66,17 @@ var declWalker = function (decl) {
 
 };
 
-module.exports = postcss.plugin('postcss-object-fit-images', function (opts) {
+function plugin(opts) {
 
     opts = opts || {};
 
-    return function (css) {
-        css.walkDecls('object-fit', declWalker);
+    return {
+        postcssPlugin: 'postcss-object-fit-images',
+        Declaration: {
+            'object-fit': declWalker
+        }
     };
-});
+}
+
+module.exports = plugin;
+plugin.postcss = true;
